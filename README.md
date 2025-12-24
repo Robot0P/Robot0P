@@ -25,7 +25,7 @@
 ```bash
 root@github:~# ./display_user_info.sh
 
-> [!] IDENTITY CONFIRMED: YOUR_USERNAME
+> [!] IDENTITY CONFIRMED: Robot0P
 > [!] ROLE: White Hat Hacker / Security Researcher
 > [!] LOCATION: Unknown Proxy Location
 > [!] CURRENT_STATUS: Scanning for vulnerabilities...
