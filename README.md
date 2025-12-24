@@ -14,9 +14,6 @@
 
 <div align="center">
   
-  <!-- 1. HEADER: MATRIX ANIMATION -->
-  <img src="/bg.gif" width="100%" height="200" style="object-fit: cover; border-radius: 6px;">
-
   <br/><br/>
 
   <!-- 
@@ -53,15 +50,7 @@
   </tr>
 </table>
 
-<!-- 5. ACTIVITY GRAPH (Full Width) -->
-<div align="center">
-  <br/>
-  <code style="color: #00FF00;">root@kali:~# view_network_logs --full</code>
-  <br/><br/>
-  <a href="https://github.com/ashutosh00710/github-readme-activity-graph">
-    <img src="https://github-readme-activity-graph.vercel.app/graph?username=Robot0P&bg_color=000000&color=00FF00&line=00FF00&point=FFFFFF&area=true&hide_border=true&custom_title=TRAFFIC_ANALYSIS" width="100%" />
-  </a>
-</div>
+
 
 <!-- 6. FOOTER -->
 <br/>
