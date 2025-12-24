@@ -1,0 +1,151 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&amp;display=swap');
+    
+    /* 背景动画：扫描线 */
+    @keyframes scanline {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(100%); }
+    }
+    
+    /* 光标闪烁 */
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* 打字动画逻辑 */
+    @keyframes type-command1 {
+      0% { width: 0; }
+      10%, 90% { width: 24ch; } /* "init_system --target=all" len=24 */
+      100% { width: 24ch; }
+    }
+    
+    @keyframes show-output1 {
+      0%, 10% { opacity: 0; }
+      11%, 100% { opacity: 1; }
+    }
+
+    @keyframes show-output2 {
+      0%, 15% { opacity: 0; }
+      16%, 100% { opacity: 1; }
+    }
+    
+    @keyframes show-prompt2 {
+      0%, 20% { opacity: 0; }
+      21%, 100% { opacity: 1; }
+    }
+
+    @keyframes type-command2 {
+      0%, 21% { width: 0; }
+      30%, 100% { width: 14ch; } /* "./whoami.sh" len=11 + " " */
+    }
+
+    @keyframes show-result-user {
+      0%, 31% { opacity: 0; }
+      32%, 100% { opacity: 1; }
+    }
+
+    .bg { fill: #0d1117; }
+    .terminal-header { fill: #161b22; }
+    .dot { r: 6; }
+    .red { fill: #ff5f56; }
+    .yellow { fill: #ffbd2e; }
+    .green { fill: #27c93f; }
+    
+    .text {
+      font-family: 'Fira Code', monospace;
+      font-size: 16px;
+      fill: #2ecc71; /* Hacker Green */
+    }
+    .white { fill: #e6edf3; }
+    .blue { fill: #58a6ff; }
+    .dim { fill: #8b949e; }
+    
+    /* 打字容器 */
+    .typing-container {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid #2ecc71; /* 光标 */
+      animation: blink 1s step-end infinite;
+    }
+    
+    /* 隐藏/显示控制 */
+    .step1-cmd { 
+      overflow: hidden; 
+      white-space: nowrap; 
+      border-right: 2px solid transparent;
+      width: 0;
+      animation: type-command1 3s steps(24) forwards;
+      animation-delay: 0.5s;
+    }
+    
+    .step1-out { opacity: 0; animation: show-output1 6s forwards; }
+    .step2-out { opacity: 0; animation: show-output2 6s forwards; }
+    
+    .step2-prompt { opacity: 0; animation: show-prompt2 6s forwards; }
+    .step2-cmd {
+      overflow: hidden; 
+      white-space: nowrap; 
+      width: 0;
+      animation: type-command2 3s steps(14) forwards;
+    }
+    .step2-res { opacity: 0; animation: show-result-user 6s forwards; }
+
+  </style>
+
+  <!-- 1. 背景 -->
+  <rect width="100%" height="100%" class="bg" rx="10" />
+  
+  <!-- 2. 只有顶部的终端栏 -->
+  <rect width="100%" height="40" class="terminal-header" rx="10" />
+  <rect y="30" width="100%" height="20" class="bg" /> <!-- 遮挡圆角底部 -->
+  
+  <circle cx="20" cy="20" class="dot red" />
+  <circle cx="45" cy="20" class="dot yellow" />
+  <circle cx="70" cy="20" class="dot green" />
+  <text x="50%" y="25" text-anchor="middle" class="text dim" style="font-size: 14px;">root@kali: ~</text>
+
+  <!-- 3. 内容区域 -->
+  <!-- 行高约 25px -->
+  
+  <!-- Line 1: init command -->
+  <g transform="translate(20, 80)">
+    <text class="text blue">root@kali:~$</text>
+    <text x="130" class="text white step1-cmd" style="animation: type-command1 2s steps(24) forwards 0.5s">init_system --target=all</text>
+  </g>
+
+  <!-- Line 2: Output -->
+  <g transform="translate(20, 110)">
+    <text class="text dim step1-out" style="animation: show-output1 0.1s forwards 2.6s">[+] Initializing kernel modules...</text>
+  </g>
+
+  <!-- Line 3: Output -->
+  <g transform="translate(20, 135)">
+    <text class="text dim step2-out" style="animation: show-output2 0.1s forwards 2.8s">[!] BYPASSING FIREWALL... SUCCESS</text>
+  </g>
+
+  <!-- Line 4: Second Prompt -->
+  <g transform="translate(20, 175)">
+    <text class="text blue step2-prompt" style="animation: show-prompt2 0.1s forwards 3.0s">root@kali:~$</text>
+    <text x="130" class="text white step2-cmd" style="animation: type-command2 1.5s steps(14) forwards 3.2s">./whoami.sh</text>
+  </g>
+
+  <!-- Line 5-8: Result Card -->
+  <g transform="translate(20, 215)" class="step2-res" style="animation: show-result-user 0.1s forwards 4.8s">
+    <rect width="760" height="160" rx="5" fill="#000000" stroke="#2ecc71" stroke-width="1" />
+    <text x="20" y="30" class="text green" style="font-weight: bold;">IDENTITY V3.0 FOUND:</text>
+    
+    <text x="40" y="60" class="text white">USER:     Robot0P</text>
+    <text x="40" y="85" class="text white">ROLE:     Cybersecurity Specialist</text>
+    <text x="40" y="110" class="text white">LOC:      Encrypted Network</text>
+    <text x="40" y="135" class="text white">STATUS:   <tspan fill="#ff5f56">Infiltration Mode</tspan></text>
+  </g>
+
+  <!-- 始终闪烁的光标 (跟在最后) -->
+  <rect x="260" y="160" width="10" height="20" class="green step2-res" style="animation: blink 1s infinite; animation-delay: 5s; opacity:0;" />
+
+  <!-- 扫描线滤镜效果 (可选，为避免兼容性问题暂不加 heavy filters) -->
+  
+</svg>
