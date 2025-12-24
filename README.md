@@ -15,7 +15,7 @@
 <div align="center">
   
   <!-- 1. HEADER: MATRIX ANIMATION -->
-  <img src="https://www.textures4photoshop.com/tex/direct-download.ashx?id=1uYxc2wK/OHZD8e+HDI4Kl+aWCBCqljN5VZNAeHiHJg=" width="100%" height="200" style="object-fit: cover; border-radius: 6px;">
+  <img src="/bg.gif" width="100%" height="200" style="object-fit: cover; border-radius: 6px;">
 
   <br/><br/>
 
