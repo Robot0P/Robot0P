@@ -93,31 +93,9 @@ root@Robot0P:~# _
 
 <br/>
 
-<!-- 6. GITHUB STATS (使用表格布局以并排显示，背景强制纯黑) -->
-<table align="center" style="border: 0px;">
-  <tr>
-    <td align="center" style="border: 0px; background-color: transparent;">
-      <img src="https://github-readme-stats.vercel.app/api?username=Robot0P&show_icons=true&theme=dark&title_color=00FF00&text_color=00FF00&icon_color=00FF00&bg_color=000000&hide_border=false&border_color=00FF00&count_private=true" height="180" />
-    </td>
-    <td align="center" style="border: 0px; background-color: transparent;">
-      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Robot0P&layout=compact&theme=dark&title_color=00FF00&text_color=00FF00&bg_color=000000&hide_border=false&border_color=00FF00&langs_count=6" height="180" />
-    </td>
-  </tr>
-</table>
 
-<br/>
 
-<!-- 7. ACTIVITY GRAPH (底部大图) -->
-<div align="center">
-  <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.gif" width="100%" height="3px" style="filter: hue-rotate(90deg);">
-  <br/><br/>
-  
-  <a href="https://github.com/ashutosh00710/github-readme-activity-graph">
-    <img src="https://github-readme-activity-graph.vercel.app/graph?username=Robot0P&bg_color=000000&color=00FF00&line=00FF00&point=FFFFFF&area=true&hide_border=true&custom_title=NETWORK_TRAFFIC_LOGS" width="100%" />
-  </a>
-</div>
 
-<br/>
 
 <!-- 8. FOOTER -->
 <div align="center">
